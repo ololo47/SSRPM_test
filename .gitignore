@@ -1,0 +1,17 @@
+# Node/Vite
+node_modules
+.DS_Store
+dist
+.vscode
+.env
+.env.*
+*.local
+*.log
+coverage
+*.tsbuildinfo
+.cache
+.sass-cache
+.next
+.vercel
+.idea
+node_modules
