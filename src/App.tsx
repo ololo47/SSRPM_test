@@ -298,7 +298,7 @@ function AppPageNav({ activeTab, setActiveTab, isScrolled }: {
 // Updated Review Card Components with new icons
 function StarBorderPurple500() {
   return (
-    <div className="relative shrink-0 size-3" data-name="star_border_purple500">
+    <div className="relative shrink-0 size-4" data-name="star_border_purple500">
       <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 12 12">
         <g id="star_border_purple500">
           <path d={newSvgPaths.pd96d200} fill="currentColor" id="Vector" />
@@ -313,10 +313,10 @@ function StarRatings({ rating, ratingType }: { rating: number; ratingType: 'low'
   const borderColor = ratingType === 'low' ? 'border-destructive' : 'border-muted';
   
   return (
-    <div className={`${bgColor} relative rounded-lg shrink-0 size-[34px] ${borderColor} border-2`} data-name=".starRatings">
-      <div className="flex items-center justify-center overflow-clip p-2 relative size-[34px]">
+    <div className={`${bgColor} relative rounded-lg shrink-0 size-9 ${borderColor} border`} data-name=".starRatings">
+      <div className="flex items-center justify-center overflow-clip px-[6px] py-[5px] relative size-9">
         <StarBorderPurple500 />
-        <span className="text-foreground text-sm ml-1">{rating}</span>
+        <span className="text-foreground text-[15px] font-medium ml-0.5">{rating}</span>
       </div>
     </div>
   );
@@ -324,8 +324,8 @@ function StarRatings({ rating, ratingType }: { rating: number; ratingType: 'low'
 
 function StatusBadge({ text }: { text: string }) {
   return (
-    <div className="bg-foreground/8 flex gap-1.5 items-center justify-center overflow-clip p-1.5 relative rounded-md shrink-0" data-name="Status Badge 📱">
-      <label className="text-foreground/60">{text}</label>
+    <div className="bg-muted flex gap-1 items-center justify-center overflow-clip px-2 py-1 relative rounded-md shrink-0" data-name="Status Badge 📱">
+      <label className="text-[13px] text-muted-foreground font-medium">{text}</label>
     </div>
   );
 }
@@ -344,7 +344,7 @@ function OptionsIcon() {
 
 function IconButtonOptions() {
   return (
-    <div className="bg-transparent flex items-center justify-center overflow-clip p-2 relative rounded-lg shrink-0" data-name="Icon Button 📱">
+    <div className="bg-transparent flex items-center justify-center overflow-clip p-1.5 relative rounded-lg shrink-0 cursor-pointer hover:bg-muted/50 transition-colors" data-name="Icon Button 📱">
       <OptionsIcon />
     </div>
   );
@@ -352,8 +352,8 @@ function IconButtonOptions() {
 
 function DateAndOptions({ date, statusText }: { date: string; statusText: string }) {
   return (
-    <div className="flex gap-1.5 items-center justify-end relative shrink-0 text-[15px]" data-name="Date and options">
-      <span className="text-muted-foreground text-sm text-[14px]">{date}</span>
+    <div className="flex gap-1.5 items-center justify-end relative shrink-0" data-name="Date and options">
+      <span style={{ fontSize: '14px' }} className="text-muted-foreground font-normal">{date}</span>
       <StatusBadge text={statusText} />
       <IconButtonOptions />
     </div>
@@ -364,7 +364,7 @@ function Ratings({ rating, date, statusText }: { rating: number; date: string; s
   const ratingType = rating <= 2 ? 'low' : 'high';
   
   return (
-    <div className="flex items-start justify-between relative shrink-0 w-full" data-name="Ratings">
+    <div className="flex items-center justify-between relative shrink-0 w-full" data-name="Ratings">
       <StarRatings rating={rating} ratingType={ratingType} />
       <DateAndOptions date={date} statusText={statusText} />
     </div>
@@ -374,7 +374,7 @@ function Ratings({ rating, date, statusText }: { rating: number; date: string; s
 function RestaurantInfo({ restaurantName }: { restaurantName: string }) {
   return (
     <div className="flex gap-0.5 items-start justify-start relative shrink-0" data-name="Restaurant info">
-      <label className="text-muted-foreground">{restaurantName}</label>
+      <label className="text-[14px] text-muted-foreground font-normal">{restaurantName}</label>
     </div>
   );
 }
@@ -382,7 +382,7 @@ function RestaurantInfo({ restaurantName }: { restaurantName: string }) {
 function Middle({ customerName, restaurantName }: { customerName: string; restaurantName: string }) {
   return (
     <div className="flex gap-1.5 items-center justify-start relative shrink-0" data-name="Middle">
-      <label className="text-muted-foreground">{customerName}</label>
+      <label className="text-[14px] text-muted-foreground font-medium">{customerName}</label>
       <RestaurantInfo restaurantName={restaurantName} />
     </div>
   );
@@ -447,14 +447,14 @@ function Photos({ count }: { count: number }) {
   return (
     <div className="flex gap-1 items-center justify-start relative shrink-0" data-name="Photos">
       <PhotoIcon />
-      <label className="text-foreground">사진 {count}장</label>
+      <label className="text-[13px] text-foreground font-normal">사진 {count}장</label>
     </div>
   );
 }
 
 function ReviewActions({ photoCount }: { photoCount: number }) {
   return (
-    <div className="bg-background flex gap-1 items-center justify-center p-2 relative rounded-lg shrink-0" data-name="Review actions">
+    <div className="bg-white flex gap-1 items-center justify-center px-2 py-1 relative rounded-lg shrink-0 border border-border/60" data-name="Review actions">
       <Photos count={photoCount} />
     </div>
   );
@@ -476,14 +476,14 @@ function PriceDetails({ price, quantity }: { price: string; quantity: string }) 
   return (
     <div className="flex gap-1 items-center justify-start relative shrink-0" data-name="Price details">
       <PriceIcon />
-      <label className="text-foreground">{price} · {quantity}</label>
+      <label className="text-[13px] text-foreground font-normal">{price} · {quantity}</label>
     </div>
   );
 }
 
 function PriceAndQuantity({ price, quantity }: { price: string; quantity: string }) {
   return (
-    <div className="bg-background flex gap-1 items-center justify-center p-2 relative rounded-lg shrink-0" data-name="Price and quantity">
+    <div className="bg-white flex gap-1 items-center justify-center px-2 py-1 relative rounded-lg shrink-0 border border-border/60" data-name="Price and quantity">
       <PriceDetails price={price} quantity={quantity} />
     </div>
   );
@@ -496,7 +496,7 @@ function ReviewDetails({ channel, photoCount, price, quantity }: {
   quantity: string; 
 }) {
   return (
-    <div className="flex gap-1 items-center justify-start relative shrink-0 w-full" data-name="Review details">
+    <div className="flex gap-1.5 items-center justify-start relative shrink-0 w-full" data-name="Review details">
       <Thumbnail channel={channel} />
       <ReviewActions photoCount={photoCount} />
       <PriceAndQuantity price={price} quantity={quantity} />
@@ -605,10 +605,19 @@ function InteractiveTextArea({
     setIsEditing(true);
   };
 
-  const handleCloseFloatingButton = () => {
+  const handleCloseFloatingButton = (e?: React.MouseEvent) => {
+    // Hide only the floating button and keep the textarea focused/editing
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setShowFloatingButton(false);
-    setIsEditing(false);
-    onClose();
+    setIsEditing(true);
+    // Refocus after DOM updates
+    requestAnimationFrame(() => {
+      textAreaRef.current?.focus();
+      adjustTextAreaHeight();
+    });
   };
 
   const adjustTextAreaHeight = () => {
@@ -659,7 +668,7 @@ function InteractiveTextArea({
     }
   }, [isEditing]);
 
-  const baseClasses = "bg-background flex flex-col items-center justify-start relative rounded-lg shrink-0 w-full z-[3]";
+  const baseClasses = "bg-transparent flex flex-col items-center justify-start relative rounded-lg shrink-0 w-full z-[3]";
   const pressedClasses = isPressed 
     ? "shadow-[0px_0px_0px_2px_#ffffff,0px_0px_0px_4px_#000000]" 
     : "";
@@ -757,19 +766,19 @@ function DetailedReviewCard({ review, cardIndex }: { review: ReviewCardData; car
   };
 
   return (
-    <div className="bg-foreground/10 relative rounded-xl shrink-0 w-full" data-name="review card">
+    <div className="bg-[#F5F5F5] relative rounded-xl shrink-0 w-full" data-name="review card" style={{ backgroundColor: '#F5F5F5' }}>
       <div className="flex flex-col justify-center overflow-clip relative size-full">
-        <div className="flex flex-col gap-2 items-start justify-center p-2 relative w-full">
+        <div className="flex flex-col gap-3 items-start justify-center p-3 relative w-full bg-[#F5F5F5] rounded-xl" style={{ backgroundColor: '#F5F5F5' }}>
           <Ratings rating={review.rating} date={review.date} statusText={review.statusText} />
           <Middle customerName={review.customerName} restaurantName={review.restaurantName} />
-          <p className="text-foreground w-full">
+          <p className="text-[14px] text-foreground leading-[20px] w-full">
             {review.reviewText}
           </p>
           <ReviewDetails channel={review.channel} photoCount={review.photoCount} price={review.price} quantity={review.quantity} />
           
           {/* Reply Section */}
           {review.replyType === 'full' && review.replyText && (
-            <div className="bg-background relative rounded-xl shrink-0 w-full border border-primary" data-name="Reply card">
+            <div className="bg-white relative rounded-xl shrink-0 w-full border border-primary" data-name="Reply card" style={{ backgroundColor: '#ffffff' }}>
               <div className="relative size-full">
                 <div className="flex flex-col items-start justify-start p-2 relative w-full">
                   <div className="relative shrink-0 w-full" data-name="Reply header">
@@ -802,7 +811,7 @@ function DetailedReviewCard({ review, cardIndex }: { review: ReviewCardData; car
           )}
           
           {review.replyType === 'generate' && (
-            <div className="bg-background relative rounded-xl shrink-0 w-full border border-primary">
+            <div className="bg-white relative rounded-xl shrink-0 w-full border border-primary" style={{ backgroundColor: '#ffffff' }}>
               <div className="flex flex-row items-center relative size-full">
                 <div className="flex items-center justify-between p-3 relative w-full">
                   <div className="flex gap-1 items-center justify-start relative shrink-0">
@@ -824,7 +833,7 @@ function DetailedReviewCard({ review, cardIndex }: { review: ReviewCardData; car
           )}
 
           {review.replyType === 'simple' && review.replyText && (
-            <div className="bg-background relative rounded-xl shrink-0 w-full border border-primary">
+            <div className="bg-white relative rounded-xl shrink-0 w-full border border-primary" style={{ backgroundColor: '#ffffff' }}>
               <div className="relative size-full">
                 <div className="flex flex-col items-start justify-start p-2 relative w-full">
                   <div className="relative shrink-0 w-full" data-name="Reply header">
